@@ -33,7 +33,11 @@ public class UserDaoImp implements UserDao {
         TypedQuery<User> query = sessionFactory.getCurrentSession()
                 .createQuery("from User where car.model = :model and car.series = :series")
                 .setParameter("model", model).setParameter("series", series);
-        return query.getResultList().get(0);
+        if(query.getResultList().size()>0){
+            return query.getResultList().get(0);
+        } else {
+            return null;
+        }
     }
 
 
