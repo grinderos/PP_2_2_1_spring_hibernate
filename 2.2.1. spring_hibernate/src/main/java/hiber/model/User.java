@@ -3,59 +3,82 @@ package hiber.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "users")
+@Table(name = "users_2_2_1")
 public class User {
 
-   @Id
-   @GeneratedValue(strategy = GenerationType.IDENTITY)
-   private Long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-   @Column(name = "name")
-   private String firstName;
+    @Column(name = "firstName")
+    private String firstName;
 
-   @Column(name = "last_name")
-   private String lastName;
+    @Column(name = "lastName")
+    private String lastName;
 
-   @Column(name = "email")
-   private String email;
+    @Column(name = "email")
+    private String email;
 
-   public User() {}
-   
-   public User(String firstName, String lastName, String email) {
-      this.firstName = firstName;
-      this.lastName = lastName;
-      this.email = email;
-   }
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name="car_id")
+    private Car car;
 
-   public Long getId() {
-      return id;
-   }
+    public User() {
+    }
 
-   public void setId(Long id) {
-      this.id = id;
-   }
+    public User(String firstName, String lastName, String email) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+    }
 
-   public String getFirstName() {
-      return firstName;
-   }
+    public Long getId() {
+        return id;
+    }
 
-   public void setFirstName(String firstName) {
-      this.firstName = firstName;
-   }
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-   public String getLastName() {
-      return lastName;
-   }
+    public String getFirstName() {
+        return firstName;
+    }
 
-   public void setLastName(String lastName) {
-      this.lastName = lastName;
-   }
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
 
-   public String getEmail() {
-      return email;
-   }
+    public String getLastName() {
+        return lastName;
+    }
 
-   public void setEmail(String email) {
-      this.email = email;
-   }
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public Car getCar() {
+        return car;
+    }
+
+    public void setCar(Car car) {
+        this.car = car;
+    }
+
+    @Override
+    public String toString() {
+        return "User:" +
+                "\nid       = " + id +
+                "\nfirstName= '" + firstName + '\'' +
+                "\nlastName = '" + lastName + '\'' +
+                "\nemail    = '" + email + '\'' +
+                "\ncar      = " + car;
+    }
 }

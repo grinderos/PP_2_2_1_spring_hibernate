@@ -1,0 +1,32 @@
+create table if not exists users.cars_2_2_1 (
+	id bigint primary key auto_increment,
+    model varchar(40) not null,
+    series int not null
+);
+
+
+create table if not exists users.users_2_2_1 (
+id bigint primary key auto_increment,
+    firstName varchar(40) not null,
+    lastName varchar(40) not null,
+    email varchar(40) not null,
+    car_id bigint,
+    foreign key (car_id) references users.cars_2_2_1(id)
+);
+
+SELECT * FROM users.cars_2_2_1;
+SELECT * FROM users.users_2_2_1;
+
+
+set foreign_key_checks = 0;
+drop table users.cars_2_2_1;
+drop table users.users_2_2_1;
+set foreign_key_checks = 1;
+
+set foreign_key_checks = 0;
+truncate table users.cars_2_2_1;
+truncate table users.users_2_2_1;
+set foreign_key_checks = 1;
+
+
+delete from users.cars_2_2_1 where id = 1;
