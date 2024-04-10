@@ -17,6 +17,9 @@ id bigint primary key auto_increment,
 SELECT * FROM users.cars_2_2_1;
 SELECT * FROM users.users_2_2_1;
 
+select * from users.users_2_2_1 inner join users.cars_2_2_1 on users.users_2_2_1.car_id = users.cars_2_2_1.id
+where users.cars_2_2_1.model = 'Audi R' and users.cars_2_2_1.series = '8';
+
 
 set foreign_key_checks = 0;
 drop table users.cars_2_2_1;
