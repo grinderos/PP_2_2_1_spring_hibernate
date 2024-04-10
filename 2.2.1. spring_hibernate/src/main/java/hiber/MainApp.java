@@ -16,6 +16,7 @@ public class MainApp {
         UserService userService = context.getBean(UserService.class);
         /*
         Удаление, создание, очистка таблиц.
+        Название для создаваемых таблиц нужно указать в файле db.properties и в аннотациях к классам User и Car
          */
 //        userService.dropTables();
         userService.createUsersAndCarsTables();
