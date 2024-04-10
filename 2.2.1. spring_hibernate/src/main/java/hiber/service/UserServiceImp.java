@@ -51,14 +51,7 @@ public class UserServiceImp implements UserService {
 
     @Override
     @Transactional
-    public void createDB() {
-        userDao.createDB();
-    }
-
-    @Override
-    @Transactional
     public void dropTables() {
         userDao.dropTables();
     }
-
 }

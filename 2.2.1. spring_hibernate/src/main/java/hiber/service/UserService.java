@@ -13,9 +13,8 @@ public interface UserService {
     Далее идут вспомогательные методы, чтоб не лазить каждый раз в Workbench
     */
     void truncateAllTables();
-    void createUsersAndCarsTables();
 
-    void createDB();
+    void createUsersAndCarsTables();
 
     void dropTables();
 

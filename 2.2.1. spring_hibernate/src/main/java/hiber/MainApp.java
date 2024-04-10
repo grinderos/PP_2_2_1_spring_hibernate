@@ -14,16 +14,12 @@ public class MainApp {
         AnnotationConfigApplicationContext context =
                 new AnnotationConfigApplicationContext(AppConfig.class);
         UserService userService = context.getBean(UserService.class);
-
         /*
-        Создание БД "users", если она не создана.
+        Удаление, создание, очистка таблиц.
          */
-        userService.createDB();
-        /*
-        Создание таблиц, если их нет в БД, и очистка, если они есть.
-         */
+//        userService.dropTables();
         userService.createUsersAndCarsTables();
-        userService.truncateAllTables();
+//        userService.truncateAllTables();
 
         /*
         Основная логика по заданию.
@@ -59,7 +55,7 @@ public class MainApp {
          */
 
         /*
-        Очистка таблиц "user_2_2_1" и "cars_2_2_1"
+        Очистка таблиц
          */
 //        userService.truncateAllTables();
 

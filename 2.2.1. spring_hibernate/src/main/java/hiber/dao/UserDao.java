@@ -19,7 +19,5 @@ public interface UserDao {
 
     void createUsersAndCarsTables();
 
-    void createDB();
-
     void dropTables();
 }

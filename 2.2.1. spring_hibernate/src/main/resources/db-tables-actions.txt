@@ -1,9 +1,10 @@
+create database if not exists users;
+
 create table if not exists users.cars_2_2_1 (
 	id bigint primary key auto_increment,
     model varchar(40) not null,
     series int not null
 );
-
 
 create table if not exists users.users_2_2_1 (
 id bigint primary key auto_increment,
@@ -33,3 +34,5 @@ set foreign_key_checks = 1;
 
 
 delete from users.cars_2_2_1 where id = 1;
+
+drop database users;
